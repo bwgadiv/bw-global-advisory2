@@ -1,5 +1,5 @@
 
-export type SkillLevel = 'novice' | 'experienced' | 'expert';
+export type SkillLevel = 'observer' | 'novice' | 'associate' | 'senior' | 'executive' | 'visionary';
 
 export interface ReportParameters {
   reportName: string;

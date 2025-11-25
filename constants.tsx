@@ -8,7 +8,8 @@ import {
     MiningIcon, LogisticsIcon, TourismIcon, EducationIcon, MatchMakerIcon, ManualIcon, 
     AerospaceIcon, DefenseIcon, AutomotiveIcon, RetailIcon, MediaIcon, RealEstateIcon, 
     LegalIcon, ChemicalIcon, PharmaIcon, TelecomIcon, FashionIcon, FoodBeverageIcon, 
-    ShieldCheck, BrainCircuit, Users, GlobeIcon, Target, ActivityIcon, SearchIcon, ShieldCheckIcon, SymbiosisIcon
+    ShieldCheck, BrainCircuit, Users, GlobeIcon, Target, ActivityIcon, SearchIcon, ShieldCheckIcon, SymbiosisIcon,
+    TrendingUp, Zap, Layers, BarChart
 } from './components/Icons';
 import type { View, PersonaOption, IndustryOption, GlobalCityData, StrategicIntent } from './types';
 
@@ -19,15 +20,15 @@ export const ORIGINAL_NAV_ITEMS: { id: View, title: string, description: string,
     { id: 'compliance', title: 'Compliance', description: 'Data & Security', icon: ComplianceIcon }, 
 ];
 
-// --- STRATEGIC INTENTS (OPPORTUNITY CATALOG) ---
+// --- STRATEGIC INTENTS (OPPORTUNITY CATALOG) - EXPANDED ---
 export const STRATEGIC_INTENTS: StrategicIntent[] = [
     {
         id: 'attract_investment',
-        title: 'Attract Foreign Investment',
+        title: 'Attract Foreign Investment (FDI)',
         description: 'Identify and profile ideal foreign investors for your region or project.',
         icon: <Target className="w-8 h-8" />, 
         recommendedModules: ['rocket_engine', 'rroi', 'seam', 'comfort_index', 'negotiation_advantage'],
-        personaAlignment: ['Government', 'EDA', 'Project Developer']
+        personaAlignment: ['Government', 'EDA', 'Project Developer', 'Special Economic Zone (SEZ) Authority']
     },
     {
         id: 'enter_market',
@@ -35,7 +36,7 @@ export const STRATEGIC_INTENTS: StrategicIntent[] = [
         description: 'Assess and plan a strategic entry into a new geographic market.',
         icon: <GlobeIcon className="w-8 h-8" />,
         recommendedModules: ['rocket_engine', 'geopolitics', 'comfort_index', 'matchmaking_engine', 'cultural_intel'],
-        personaAlignment: ['Private Enterprise', 'SME']
+        personaAlignment: ['Private Enterprise', 'SME', 'MNC']
     },
     {
         id: 'derisk_supply_chain',
@@ -43,7 +44,7 @@ export const STRATEGIC_INTENTS: StrategicIntent[] = [
         description: 'Reduce reliance on single-source suppliers and find resilient alternatives.',
         icon: <ShieldCheckIcon className="w-8 h-8" />,
         recommendedModules: ['trade_disruption', 'alternative_locations', 'governance_audit', 'matchmaking_engine'],
-        personaAlignment: ['Private Enterprise', 'Manufacturing']
+        personaAlignment: ['Private Enterprise', 'Manufacturing', 'Logistics']
     },
     {
         id: 'forge_partnership',
@@ -59,7 +60,7 @@ export const STRATEGIC_INTENTS: StrategicIntent[] = [
         description: 'Deep-dive due diligence and predictive ROI analysis on a project.',
         icon: <ActivityIcon className="w-8 h-8" />,
         recommendedModules: ['predictive_growth', 'financial_feasibility', 'risk_assessment', 'deep_reasoning', 'math_models'],
-        personaAlignment: ['Financial Institution', 'Investor']
+        personaAlignment: ['Financial Institution', 'Investor', 'Private Equity']
     },
     {
         id: 'develop_policy',
@@ -67,15 +68,95 @@ export const STRATEGIC_INTENTS: StrategicIntent[] = [
         description: 'Model the economic and social impact of a new policy or infrastructure.',
         icon: <ManualIcon className="w-8 h-8" />,
         recommendedModules: ['rocket_engine', 'scf_simulation', 'stakeholder_analysis', 'rroi'],
-        personaAlignment: ['Government']
+        personaAlignment: ['Government', 'Think Tank', 'NGO']
     },
     {
         id: 'joint_venture',
         title: 'Explore Joint Venture / M&A',
         description: 'Identify and analyze potential acquisition or JV targets.',
         icon: <SymbiosisIcon className="w-8 h-8" />,
-        recommendedModules: ['deep_reasoning', 'valuation', 'cultural_fit', 'negotiation_advantage'],
-        personaAlignment: ['Private Enterprise', 'Private Equity']
+        recommendedModules: ['deep_reasoning', 'valuation', 'cultural_fit', 'negotiation_advantage', 'due_diligence'],
+        personaAlignment: ['Private Enterprise', 'Private Equity', 'Venture Capital']
+    },
+    {
+        id: 'crisis_response',
+        title: 'Crisis Response & Mitigation',
+        description: 'Immediate analysis of geopolitical or economic shockwaves and recovery paths.',
+        icon: <ShieldCheck className="w-8 h-8" />,
+        recommendedModules: ['geopolitics', 'trade_disruption', 'stakeholder_analysis', 'relationship_builder'],
+        personaAlignment: ['Government', 'MNC', 'NGO']
+    },
+    {
+        id: 'digital_transformation',
+        title: 'Digital Transformation & AI',
+        description: 'Blueprint for adopting national or corporate digital infrastructure.',
+        icon: <BrainCircuit className="w-8 h-8" />,
+        recommendedModules: ['rocket_engine', 'predictive_growth', 'math_models', 'seam'],
+        personaAlignment: ['Government', 'Private Enterprise', 'Telco']
+    },
+    {
+        id: 'workforce_development',
+        title: 'Workforce & Talent Ecosystem',
+        description: 'Analyze labor gaps, education needs, and talent attraction strategies.',
+        icon: <Users className="w-8 h-8" />,
+        recommendedModules: ['rroi', 'seam', 'cultural_intel', 'predictive_growth'],
+        personaAlignment: ['Government', 'HR', 'Education']
+    },
+    {
+        id: 'sustainability_audit',
+        title: 'Sustainability & ESG Transition',
+        description: 'Evaluate environmental impact, compliance, and green transition paths.',
+        icon: <RenewableEnergyIcon className="w-8 h-8" />,
+        recommendedModules: ['governance_audit', 'scf_simulation', 'stakeholder_analysis'],
+        personaAlignment: ['All']
+    },
+    {
+        id: 'sovereign_wealth',
+        title: 'Sovereign Wealth & Fiscal Strategy',
+        description: 'High-level asset allocation and national revenue diversification.',
+        icon: <FinanceIcon className="w-8 h-8" />,
+        recommendedModules: ['math_models', 'geopolitics', 'rocket_engine', 'deep_reasoning'],
+        personaAlignment: ['Sovereign Wealth Fund', 'Central Bank', 'Treasury']
+    },
+    {
+        id: 'innovation_hub',
+        title: 'Innovation District Development',
+        description: 'Plan and benchmark a new technology or research cluster.',
+        icon: <Zap className="w-8 h-8" />,
+        recommendedModules: ['seam', 'rocket_engine', 'matchmaking_engine', 'alternative_locations'],
+        personaAlignment: ['Government', 'Real Estate', 'University']
+    },
+    {
+        id: 'supply_chain_reengineering',
+        title: 'Supply Chain Re-Engineering',
+        description: 'Complete overhaul of logistics networks for efficiency and resilience.',
+        icon: <LogisticsIcon className="w-8 h-8" />,
+        recommendedModules: ['trade_disruption', 'alternative_locations', 'math_models'],
+        personaAlignment: ['Logistics', 'Manufacturing', 'Retail']
+    },
+    {
+        id: 'brand_soft_power',
+        title: 'Brand & Soft Power Projection',
+        description: 'Enhance national or corporate reputation globally.',
+        icon: <MediaIcon className="w-8 h-8" />,
+        recommendedModules: ['cultural_intel', 'stakeholder_analysis', 'comfort_index'],
+        personaAlignment: ['Government', 'Tourism', 'MNC']
+    },
+    {
+        id: 'ipo_capital_raising',
+        title: 'IPO & Capital Raising',
+        description: 'Prepare narrative and due diligence for public listing or major fundraising.',
+        icon: <TrendingUp className="w-8 h-8" />,
+        recommendedModules: ['financial_feasibility', 'governance_audit', 'deep_reasoning'],
+        personaAlignment: ['Private Enterprise', 'Venture Capital', 'Financial Institution']
+    },
+    {
+        id: 'political_risk',
+        title: 'Political Risk & Governance',
+        description: 'Deep analysis of regime stability, regulatory changes, and corruption.',
+        icon: <LegalIcon className="w-8 h-8" />,
+        recommendedModules: ['geopolitics', 'governance_audit', 'stakeholder_analysis'],
+        personaAlignment: ['MNC', 'Investor', 'Insurance']
     }
 ];
 

@@ -16,7 +16,7 @@ const initialParams: ReportParameters = {
     organizationSubType: '',
     userCountry: '',
     userTier: '',
-    skillLevel: 'experienced',
+    skillLevel: 'senior',
     region: 'Global',
     industry: [],
     customIndustry: '',

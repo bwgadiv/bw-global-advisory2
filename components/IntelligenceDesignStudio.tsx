@@ -170,7 +170,7 @@ export const IntelligenceDesignStudio: React.FC<DesignStudioProps> = ({
             <div className="h-full w-full bg-slate-100 overflow-y-auto font-sans" id="studio-scroll-container">
                 <div className="min-h-full flex flex-col items-center justify-center p-6 md:p-12">
                     
-                    <div className="max-w-4xl w-full animate-fade-in-up">
+                    <div className="max-w-5xl w-full animate-fade-in-up">
                         {/* Header Section */}
                         <div className="mb-10 text-center">
                             <div className="inline-flex items-center justify-center p-3 bg-white rounded shadow-sm border border-slate-300 mb-6">
@@ -187,33 +187,36 @@ export const IntelligenceDesignStudio: React.FC<DesignStudioProps> = ({
                         <div className="bg-white rounded border border-slate-200 shadow-lg overflow-hidden">
                             <div className="p-8 md:p-12 space-y-10">
                                 
-                                {/* Experience Level Selection */}
+                                {/* Experience Level Selection - Expanded */}
                                 <div className="space-y-4">
                                     <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Analyst Experience Level</h3>
-                                    <div className="grid md:grid-cols-3 gap-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {[
-                                            { id: 'novice', label: 'Analyst', desc: 'Guidance & Tutorials', icon: ManualIcon },
-                                            { id: 'experienced', label: 'Associate', desc: 'Collaborative AI Partner', icon: ActivityIcon },
-                                            { id: 'expert', label: 'Partner', desc: 'Raw Tools & Data', icon: BrainCircuit }
+                                            { id: 'observer', label: 'Observer', desc: 'Passive Insights Only', icon: ActivityIcon },
+                                            { id: 'novice', label: 'Novice Analyst', desc: 'Guided & Instructional', icon: ManualIcon },
+                                            { id: 'associate', label: 'Associate', desc: 'Collaborative Co-Pilot', icon: Users },
+                                            { id: 'senior', label: 'Senior Strategist', desc: 'Autonomous Execution', icon: Target },
+                                            { id: 'executive', label: 'Decision Maker', desc: 'Synthesis & Bottom Line', icon: ShieldCheck },
+                                            { id: 'visionary', label: 'Visionary Architect', desc: 'Abstract & Global Scale', icon: BrainCircuit }
                                         ].map((level) => (
                                             <button 
                                                 key={level.id} 
                                                 onClick={() => onParamsChange({...params, skillLevel: level.id as SkillLevel})} 
                                                 className={`group p-5 rounded border text-left transition-all duration-200 relative overflow-hidden ${
                                                     params.skillLevel === level.id 
-                                                    ? 'border-slate-900 bg-slate-50 shadow-md ring-1 ring-slate-900' 
+                                                    ? 'bg-slate-900 text-white shadow-lg scale-[1.02] ring-2 ring-offset-2 ring-slate-900 border-transparent' 
                                                     : 'border-slate-300 hover:border-slate-500 bg-white hover:bg-slate-50'
                                                 }`}
                                             >
                                                 <div className="relative z-10">
                                                     <div className="flex justify-between items-start mb-3">
-                                                        <level.icon className={`w-6 h-6 ${params.skillLevel === level.id ? 'text-slate-900' : 'text-slate-400'}`} />
-                                                        {params.skillLevel === level.id && <CheckCircle className="w-5 h-5 text-slate-900" />}
+                                                        <level.icon className={`w-6 h-6 ${params.skillLevel === level.id ? 'text-white' : 'text-slate-400'}`} />
+                                                        {params.skillLevel === level.id && <CheckCircle className="w-5 h-5 text-white" />}
                                                     </div>
-                                                    <div className={`font-bold text-lg mb-1 ${params.skillLevel === level.id ? 'text-slate-900' : 'text-slate-700'}`}>
+                                                    <div className={`font-bold text-lg mb-1 ${params.skillLevel === level.id ? 'text-white' : 'text-slate-700'}`}>
                                                         {level.label}
                                                     </div>
-                                                    <p className="text-xs text-slate-500 font-medium">{level.desc}</p>
+                                                    <p className={`text-xs font-medium ${params.skillLevel === level.id ? 'text-slate-300' : 'text-slate-500'}`}>{level.desc}</p>
                                                 </div>
                                             </button>
                                         ))}
@@ -454,7 +457,7 @@ export const IntelligenceDesignStudio: React.FC<DesignStudioProps> = ({
         return (
             <div className="h-full w-full bg-slate-100 overflow-y-auto font-sans" id="studio-scroll-container">
                 <div className="min-h-full flex flex-col items-center justify-start p-6 md:p-12">
-                    <div className="max-w-6xl w-full space-y-10 animate-fade-in">
+                    <div className="max-w-7xl w-full space-y-10 animate-fade-in">
                         
                         <div className="text-center space-y-4">
                             <button onClick={() => setStage('identity')} className="text-xs font-bold text-slate-400 hover:text-slate-900 uppercase tracking-widest mb-4 transition-colors">← Back to Identity</button>
@@ -464,7 +467,7 @@ export const IntelligenceDesignStudio: React.FC<DesignStudioProps> = ({
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                             {STRATEGIC_INTENTS.map((intent) => {
                                 const isSelected = (params.selectedIntents || []).includes(intent.id);
                                 const isAligned = intent.personaAlignment.includes('All') || intent.personaAlignment.some(p => params.organizationType.includes(p));
@@ -473,38 +476,40 @@ export const IntelligenceDesignStudio: React.FC<DesignStudioProps> = ({
                                     <button
                                         key={intent.id}
                                         onClick={() => toggleIntent(intent.id)}
-                                        className={`relative group p-8 rounded border text-left transition-all duration-300 flex flex-col h-full ${
+                                        className={`relative group p-6 rounded border text-left transition-all duration-300 flex flex-col h-full ${
                                             isSelected 
                                             ? 'bg-slate-900 border-slate-900 text-white shadow-xl transform -translate-y-1' 
-                                            : 'bg-white border-slate-200 hover:border-slate-400 hover:shadow-md'
+                                            : isAligned
+                                                ? 'bg-white border-slate-400 shadow-md ring-2 ring-slate-200' // Recommended style
+                                                : 'bg-white border-slate-200 hover:border-slate-400 hover:shadow-sm'
                                         }`}
                                     >
-                                        <div className="flex justify-between items-start mb-6">
-                                            <div className={`text-slate-900 transition-transform duration-300 ${isSelected ? 'text-white' : 'group-hover:scale-105'}`}>
+                                        <div className="flex justify-between items-start mb-4">
+                                            <div className={`transition-transform duration-300 ${isSelected ? 'text-white' : 'text-slate-900 group-hover:scale-105'}`}>
                                                 {intent.icon}
                                             </div>
-                                            {isSelected && <div className="bg-white text-slate-900 rounded-full p-1"><CheckCircle className="w-5 h-5" /></div>}
+                                            {isSelected ? (
+                                                <div className="bg-white text-slate-900 rounded-full p-1"><CheckCircle className="w-4 h-4" /></div>
+                                            ) : isAligned && (
+                                                <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase rounded border border-slate-300">
+                                                    Suggested
+                                                </span>
+                                            )}
                                         </div>
                                         
-                                        <h3 className={`text-xl font-bold mb-3 ${isSelected ? 'text-white' : 'text-slate-900'}`}>{intent.title}</h3>
-                                        <p className={`text-sm leading-relaxed mb-6 flex-grow ${isSelected ? 'text-slate-400' : 'text-slate-500'}`}>{intent.description}</p>
-                                        
-                                        {isAligned && !isSelected && (
-                                            <span className="absolute top-4 right-4 px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase rounded tracking-wider border border-slate-200">
-                                                Recommended
-                                            </span>
-                                        )}
+                                        <h3 className={`text-base font-bold mb-2 leading-tight ${isSelected ? 'text-white' : 'text-slate-900'}`}>{intent.title}</h3>
+                                        <p className={`text-xs leading-relaxed mb-4 flex-grow ${isSelected ? 'text-slate-400' : 'text-slate-500'}`}>{intent.description}</p>
                                         
                                         {/* Engine Preview */}
-                                        <div className={`pt-4 border-t ${isSelected ? 'border-slate-700' : 'border-slate-100'}`}>
-                                            <p className={`text-[10px] uppercase font-bold mb-2 ${isSelected ? 'text-slate-500' : 'text-slate-400'}`}>Active Engines</p>
+                                        <div className={`pt-3 border-t ${isSelected ? 'border-slate-700' : 'border-slate-100'}`}>
+                                            <p className={`text-[9px] uppercase font-bold mb-2 ${isSelected ? 'text-slate-500' : 'text-slate-400'}`}>Active Engines</p>
                                             <div className="flex flex-wrap gap-1">
                                                 {intent.recommendedModules.slice(0,3).map(m => (
-                                                    <span key={m} className={`text-[10px] px-2 py-1 rounded-sm font-medium ${isSelected ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-600'}`}>
+                                                    <span key={m} className={`text-[9px] px-1.5 py-0.5 rounded font-medium ${isSelected ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-600'}`}>
                                                         {MODULE_NAME_MAP[m]?.split(' ')[0]}
                                                     </span>
                                                 ))}
-                                                {intent.recommendedModules.length > 3 && <span className={`text-[10px] px-2 py-1 rounded-sm font-medium ${isSelected ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-600'}`}>+{intent.recommendedModules.length - 3}</span>}
+                                                {intent.recommendedModules.length > 3 && <span className={`text-[9px] px-1.5 py-0.5 rounded font-medium ${isSelected ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-600'}`}>+{intent.recommendedModules.length - 3}</span>}
                                             </div>
                                         </div>
                                     </button>
