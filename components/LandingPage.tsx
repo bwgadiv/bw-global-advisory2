@@ -23,25 +23,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                         <div className="p-2 bg-slate-900 rounded-md">
                             <NexusLogo className="w-5 h-5 text-white" />
                         </div>
-                        <span className="text-xs font-bold tracking-[0.2em] uppercase text-slate-900">BW Global Advisory</span>
+                        <span className="text-xs font-bold tracking-[0.2em] uppercase text-orange-600">BW Global Advisory</span>
                     </div>
-                    <button 
-                        onClick={onEnter}
-                        className="text-xs font-bold tracking-widest uppercase text-slate-500 hover:text-slate-900 transition-colors"
-                    >
-                        Access Platform
-                    </button>
                 </header>
 
                 <div className="relative z-10 max-w-5xl mx-auto space-y-8 animate-fade-in-up">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-900"></span>
-                        System Online
-                    </div>
-
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 leading-tight">
-                        Your Region’s Value,<br/>
-                        <span className="text-slate-400">Understood Globally.</span>
+                    
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+                        <span className="text-blue-900">Your Region’s Value,</span><br/>
+                        <span className="text-orange-600">Understood Globally.</span>
                     </h1>
                     
                     <div className="max-w-3xl mx-auto space-y-6 text-lg text-slate-600 leading-relaxed">
